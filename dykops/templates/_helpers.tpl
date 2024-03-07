@@ -46,6 +46,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 Selector labels
 */}}
 {{- define "dykops.selectorLabels" -}}
+app: web
 app.kubernetes.io/name: {{ include "dykops.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}

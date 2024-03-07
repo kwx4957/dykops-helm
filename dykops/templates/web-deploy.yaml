@@ -33,9 +33,18 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env: 
+            - name: MariaDB_HOST
+              value: "db.cbg4swsgyecn.ap-northeast-2.rds.amazonaws.com" # mariadb-svc
+            - name: MariaDB_PORT
+              value: "3306"
+            - name: MariaDB_USER
+              value: "admin"
+            - name: MariaDB_PASSWORD
+              value: "qwerqwer" 
           ports:
             - name: http
-              containerPort: {{ .Values.service.port }}
+              containerPort: 8080
               protocol: TCP
           livenessProbe:
             httpGet:
@@ -59,3 +68,29 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+
+# metadata:
+#   name: web-deploy
+# spec:
+#   selector:
+#     matchLabels:
+#       app: web
+#   template:
+#     metadata:
+#       labels:
+#         app: web
+#     spec:
+#       containers:
+#       - image: kwx4957/kops:0.01
+#         name: dykops
+#         ports :
+#           - containerPort: 8080
+#         env:
+#           - name: MariaDB_HOST
+#             value: #db-svc 이름 입력
+#           - name: MariaDB_PORT
+#             value: "3306"
+#           - name: MariaDB_USER
+#             value: "admin"
+#           - name: MariaDB_PASSWORD
+#             value: "qwerqwer"

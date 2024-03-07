@@ -1,0 +1,30 @@
+# apiVersion: apps/v1
+# kind: StatefulSet
+# metadata:
+#   name: mariadb-sts
+# spec:
+#   serviceName: mariadb-svc
+#   replicas: 2
+#   selector:
+#     matchLabels:
+#       app: mariadb
+#   template:
+#    metadata:
+#     labels:
+#       app: mariadb
+#     spec:
+#       terminationGracePeriodSeconds: 10
+#       containers:
+#         - name: mariadb
+#           image: mysql:5.7
+#           ports:
+#             - protocol: TCP
+#               containerPort: 3306
+#           env:
+#             - name: MYSQL_ROOT_PASSWORD
+#               value: examplepassword
+#             - name: MYSQL_DATABASE
+#               value: example
+#           volumeMounts:
+#             - name: data
+#               mountPath: /var/lib/mysql
