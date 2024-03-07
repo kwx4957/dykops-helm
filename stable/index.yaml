@@ -3,12 +3,12 @@ entries:
   dykops:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-03-08T02:26:11.9825314+09:00"
+    created: "2024-03-08T06:00:31.3269209+09:00"
     description: A Helm chart for Kubernetes
-    digest: daa12e4805043901fdb9df17c90a6e5b6a9de2b0cabd49950d1fb6f862f4dc66
+    digest: 8652c206cc212c9c3c253ac332861154c3b1281ab6bf860f100135ffa9b6c503
     name: dykops
     type: application
     urls:
     - dykops-0.1.0.tgz
     version: 0.1.0
-generated: "2024-03-08T02:26:11.9814559+09:00"
+generated: "2024-03-08T06:00:31.3258584+09:00"
